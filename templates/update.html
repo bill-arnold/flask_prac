@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{% block head%}
+
+{%endblock%}
+
+{% block body%}
+<h1>Update Contact</h1>
+
+<form method="POST" action="/update/{{contact_to_update.id}}">
+    <input type="text" value="{{ contact_to_update.name }}" name="contact" placeholder="Name" required>
+    <input type="text" value="{{ contact_to_update.number }}" name="number" placeholder="Phone Number" required>
+    <input type="email" value="{{ contact_to_update.email }}" name="email" placeholder="Email" required>
+    <button type="submit">Update Contact</button>
+</form>
+
+
+{%endblock%}

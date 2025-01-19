@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+{% block head%}
+
+{%endblock%}
+
+{% block body%}
+<h1>Contact App</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>email</th>
+    </tr>
+    {% for contact in contacts%}
+    <tr>
+        <td>{{contact.name}}</td>
+        <td>{{contact.number}}</td>
+        <td>{{contact.email}}</td>
+        <td>
+            <a href="/delete/{{contact.id}}">Delete</a>
+            <br>
+            <a href="/update/{{contact.id}}">Update</a>
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+
+<form method="POST" action="/">
+    <input type="text" name="contact" placeholder="Name" required>
+    <input type="text" name="number" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Add Contact</button>
+</form>
+
+
+{%endblock%}
